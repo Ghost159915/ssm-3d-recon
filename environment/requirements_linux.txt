@@ -1,0 +1,51 @@
+# ============================================================
+# SSM-3DRecon — Linux AMD RX 7700 XT (ROCm backend)
+# ============================================================
+# Install with:
+#   pip install -r requirements_linux.txt
+#
+# PyTorch for ROCm (ROCm appears as "cuda" to PyTorch):
+#   pip install torch torchvision \
+#       --index-url https://download.pytorch.org/whl/rocm6.0
+#
+# IMPORTANT: Do NOT install mamba-ssm — it uses CUDA-only custom
+# CUDA kernels that are NOT compatible with ROCm. Our S5 is pure
+# PyTorch and works natively.
+# ============================================================
+
+# --- Core deep learning ---
+torch>=2.2.0
+torchvision
+einops>=0.7.0
+
+# --- Array / math ---
+numpy>=1.24.0
+scipy>=1.11.0
+
+# --- Image / video I/O ---
+opencv-python>=4.9.0
+pillow>=10.0.0
+
+# --- Progress / plotting ---
+tqdm>=4.66.0
+matplotlib>=3.8.0
+
+# --- 3D reconstruction ---
+open3d>=0.18.0
+
+# --- Depth estimation ---
+transformers>=4.40.0
+timm>=0.9.0
+
+# --- Pose estimation (optional) ---
+# pycolmap
+
+# --- Semantics ---
+# pip install git+https://github.com/IDEA-Research/GroundingDINO.git
+# pip install git+https://github.com/facebookresearch/sam2.git
+
+# --- Dev / notebook ---
+ipykernel>=6.0.0
+jupyterlab>=4.0.0
+trimesh>=4.3.0
+plotly>=5.20.0

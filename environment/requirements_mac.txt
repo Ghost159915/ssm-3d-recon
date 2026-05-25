@@ -1,0 +1,51 @@
+# ============================================================
+# SSM-3DRecon — Mac M4 (MPS backend)
+# ============================================================
+# Install with:
+#   pip install -r requirements_mac.txt
+#
+# PyTorch for Mac (CPU wheels include MPS support):
+#   pip install torch torchvision \
+#       --index-url https://download.pytorch.org/whl/cpu
+# ============================================================
+
+# --- Core deep learning ---
+torch>=2.2.0
+torchvision
+einops>=0.7.0          # Tensor rearranging, critical for S5 scan
+
+# --- Array / math ---
+numpy>=1.24.0
+scipy>=1.11.0          # Least-squares scale alignment
+
+# --- Image / video I/O ---
+opencv-python>=4.9.0
+pillow>=10.0.0
+
+# --- Progress / plotting ---
+tqdm>=4.66.0
+matplotlib>=3.8.0
+
+# --- 3D reconstruction ---
+open3d>=0.18.0         # TSDF fusion, Marching Cubes, mesh I/O
+
+# --- Depth estimation ---
+transformers>=4.40.0   # Depth Anything V2 via HuggingFace
+timm>=0.9.0            # DINOv2 backbone
+
+# --- Pose estimation (optional — TUM has GT poses) ---
+# pycolmap              # Uncomment if running COLMAP SfM
+
+# --- Semantics ---
+# groundingdino and sam2 require separate installs; see README
+# pip install git+https://github.com/IDEA-Research/GroundingDINO.git
+# pip install git+https://github.com/facebookresearch/sam2.git
+
+# --- Dev / notebook ---
+ipykernel>=6.0.0
+jupyterlab>=4.0.0
+trimesh>=4.3.0         # Mesh I/O, .glb export
+plotly>=5.20.0         # Interactive 3D plots in notebooks
+
+# --- Accelerated attention (optional, Mac-compatible) ---
+# flash-attn is NOT available for MPS — skip
