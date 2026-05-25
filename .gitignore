@@ -1,5 +1,5 @@
 # Large data — stays on each machine
-data/
+/data/
 outputs/
 *.npy
 *.pt
